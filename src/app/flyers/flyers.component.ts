@@ -20,9 +20,7 @@ export class FlyersComponent implements OnInit {
         return dato1 + dato2;
     }
 
-qw e4r56 <32we`poiop`'0987y854 Zx
-iuykugj mkñlkjhnm,.-¨-ñlkjmhnbgnhm,l.ñ-.,mnbvcbnjk,jhgfvvghjufdscvbnmiuy6t5r4e3wqazXcfgt5432wq  addEventListenerw5654321<2389321345654ewsaxc
-'_:l    // Operación restar datos
+    // Operación restar datos
     restaDatos(dato1, dato2) {
         return dato1 - dato2;
     }
