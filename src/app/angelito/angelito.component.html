@@ -1,0 +1,28 @@
+<h2>Desarrollar una página web que permita hacer el sorteo aleatorio de una cantidad n de personas. 
+<hr>
+<!-- input para ingresar nombre de forma manual -->
+<input placeholder="Nombre" [(ngModel)]="nombreParticipante" (keyup.enter)="ingresarNombre()">
+
+<!-- botón para ingresar valor-->
+<button (click)="ingresarNombre()">
+    Ingresar nombre 
+</button>
+
+<!-- listado de participantes-->
+<ul>
+    <li *ngFor="let participante of listaParticipantes">
+        {{participante}}
+    </li>
+</ul>
+
+<!-- iniciar el sorteo -->
+<button (click)="hacerSorteo()">
+    Emparejar
+</button>
+
+<!-- Parejas -->
+<ul>
+    <li *ngFor="let pareja of emparejamientos">
+        {{pareja.primero}} con {{pareja.segundo}}
+    </li>
+</ul>

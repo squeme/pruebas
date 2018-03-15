@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { FlyersComponent } from './flyers/flyers.component';
 import { TetosComponent } from './tetos/tetos.component';
+import { AngelitoComponent } from './angelito/angelito.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { TetosComponent } from './tetos/tetos.component';
     AppComponent,
     HeroesComponent,
     FlyersComponent,
-    TetosComponent
+    TetosComponent,
+    AngelitoComponent
   ],
   imports: [
     BrowserModule,
