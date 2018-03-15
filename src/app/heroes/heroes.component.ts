@@ -12,6 +12,7 @@ export class HeroesComponent implements OnInit {
 
   // Propiedades
   heroes = HEROES;
+
   selectedHero: Hero;
 
   onSelect(hero: Hero): void {
