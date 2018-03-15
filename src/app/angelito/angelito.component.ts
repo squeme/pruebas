@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AngelitoComponent implements OnInit {
   listaParticipantes = [];
+  emparejamientos = [];
   nombreParticipante = '';
   
   constructor() { }
@@ -26,6 +27,23 @@ export class AngelitoComponent implements OnInit {
   }
 
   hacerSorteo(){
+    let listaParticipantes2 = this.listaParticipantes.slice(0);
+    this.emparejamientos = [];
+
+    while (listaParticipantes2.length > 1) {
+      var indexRandom1 = Math.floor(Math.random() * listaParticipantes2.length);
+      var primerParticipante = listaParticipantes2[indexRandom1];
+      listaParticipantes2.splice(indexRandom1, 1);
+
+      var indexRandom2 = Math.floor(Math.random() * listaParticipantes2.length);
+      var segundoParticipante = listaParticipantes2[indexRandom2];
+      listaParticipantes2.splice(indexRandom2, 1);
+      
+      this.emparejamientos.push({primero: primerParticipante, segundo: segundoParticipante});
+    }
     
+    if(listaParticipantes2.length == 1){
+      alert(listaParticipantes2 + " quedó solito el pobrecito");
+    }
   }
 }
