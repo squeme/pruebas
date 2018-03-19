@@ -1,0 +1,92 @@
+<!-- * * * * * * * * * * * * * * * INSTRUCCIONES * * * * * * * * * * * * * * * -->
+<div style="display:none">
+  <h1>Cotizador Faser</h1>
+  <h2>Instrucciones</h2>
+  <h3>Fase 1:</h3>
+  <ul>
+    <li>
+      Definir los salarios en Quetzales para las siguientes labores:
+      <ul>
+        <li>Programador full stack</li>
+        <li>Diseñador comercial</li>
+        <li>Diseñador Wordpress</li>
+        <li>Diseñador editorial</li>
+        <li>Otro</li>
+      </ul>
+    </li>
+    <li>
+      Ingresar tipo de cambio en otro input
+    </li>
+    <li>
+      Al presionar el botón "Calcular", debe mostrar lo siguiente para cada tipo de salario:
+      <ul>
+        <li>Salario mensual en dólares</li>
+        <li>Salario por hora en quetzales</li>
+        <li>Salario por horaen dólares</li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+</div>
+<!-- * * * * * * * * * * * * * * * VISTA * * * * * * * * * * * * * * * -->
+<!-- contenedor general -->
+<div class="container-fluid">
+    <!-- encabezado -->
+  <div class="row">
+    <div class="col-md-2" style="background-color:rgb(255, 255, 255)">
+        <img src="./assets/logos/FASER2018_cua.png" height="100px"/>
+    </div>
+    <div class="col" style="background-color:rgba(255, 255, 255, 0.867)">
+      <h1>Cotizador 2018</h1>
+    </div>
+    <div class="col-md-3" style="background-color:rgb(223, 223, 223)">
+      <h2 style="text-align:center;">tipo de cambio</h2> 
+      <input type="number" placeholder="Tipo de cambio" [(ngModel)]="tipoDeCambio">
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- módulo de referencias salariales -->
+  <div class="row">
+    <div class="col-md-4" style="background-color:white">
+      <div class="row">
+
+        <!-- Puesto -->
+        <div class= "col-md-4" style="background-color:rgb(233, 231, 231)">
+          <h4 style="text-align:center;">Cargo</h4>
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Puesto" [(ngModel)]="salarioFullstack.nombre" name="nombre" >
+            </mat-form-field>
+          </form>
+        </div>
+        
+        <!-- Quetzales -->
+        <div class= "col-md-4" style="background-color:rgb(215, 250, 16)">
+          <div class="row" style="background-color:rgb(79, 255, 246)">Q mensual
+            <!-- input para ingresar cantidad manual -->
+            <input type="number" placeholder="Salario mensual Q" [(ngModel)]="salarioFullstack.salarioQuetzales" (ngModelChange)="calcularSalario(salarioFullstack)">
+          </div>
+          <div class="row" style="background-color:rgb(255, 163, 255)">Q hora
+              <!-- input de resultado cantidad Quetzales por hora -->
+                <input placeholder="Salario por hora Q" [(ngModel)]="salarioFullstack.salarioHoraQuetzales" disabled>
+            </div>
+        </div>
+        <!-- Dólares -->
+        <div class="col-md-4" style="background-color:rgb(195, 184, 255)">
+            <div class="row" style="background-color:rgb(79, 255, 246)">$ mensual
+                <input placeholder="Salario $" [(ngModel)]="salarioFullstack.salarioDolares" disabled>
+            </div>
+            <div class="row" style="background-color:rgb(255, 163, 255)">$ hora
+                <input placeholder="Salario por hora $" [(ngModel)]="salarioFullstack.salarioHoraDolares" disabled>
+            </div>
+        </div>
+        <hr />
+      </div>
+    </div>
+
+    <!-- en blanco -->
+    <div class= "col-md-8" style="background-color:rgb(255, 255, 255)"></div>
+  </div>
+</div>
