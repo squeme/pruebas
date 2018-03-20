@@ -27,10 +27,19 @@ export class CotizadorComponent implements OnInit {
     this.salarioDisenadorComercial.salarioQuetzales = 5000;
   }
   
+ 
   calcularSalario (salario: Salario) {    
     salario.salarioDolares = salario.salarioQuetzales / this.tipoDeCambio;
     salario.salarioHoraQuetzales = salario.salarioQuetzales / this.horaMes;
     salario.salarioHoraDolares = salario.salarioDolares / this.horaMes;
+
+    salario.salarioDolares = this.setTwoNumberDecimal(salario.salarioDolares);
+    salario.salarioHoraQuetzales = this.setTwoNumberDecimal(salario.salarioHoraQuetzales);
+    salario.salarioHoraDolares = this.setTwoNumberDecimal(salario.salarioHoraDolares);
   }
 
+  setTwoNumberDecimal(decimales) {
+    decimales = parseFloat(decimales).toFixed(2);
+    return decimales;
+  }
 }

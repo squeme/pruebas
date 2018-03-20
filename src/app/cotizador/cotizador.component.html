@@ -30,8 +30,8 @@
 </div>
 <!-- * * * * * * * * * * * * * * * VISTA * * * * * * * * * * * * * * * -->
 <!-- contenedor general -->
-<div class="container-fluid">
-    <!-- encabezado -->
+<div class="container-fluid" style="background-color:#f5f6f7">
+  <!-- encabezado -->
   <div class="row">
     <div class="col-md-2" style="background-color:rgb(255, 255, 255)">
         <img src="./assets/logos/FASER2018_cua.png" height="100px"/>
@@ -49,12 +49,12 @@
 
   <!-- módulo de referencias salariales -->
   <div class="row">
-    <div class="col-md-4" style="background-color:white">
+    <div class="col-md-6" style="background-color:rgb(255, 255, 255">
+      <mat-card style="background-color:rgb(255, 255, 255)">
       <div class="row">
 
         <!-- Puesto -->
-        <div class= "col-md-4" style="background-color:rgb(233, 231, 231)">
-          <h4 style="text-align:center;">Cargo</h4>
+        <div class= "col-md-4 d-flex align-items-center" style="background-color:rgb(219, 219, 219)"> 
           <form class="example-form">
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Puesto" [(ngModel)]="salarioFullstack.nombre" name="nombre" >
@@ -63,30 +63,115 @@
         </div>
         
         <!-- Quetzales -->
-        <div class= "col-md-4" style="background-color:rgb(215, 250, 16)">
-          <div class="row" style="background-color:rgb(79, 255, 246)">Q mensual
+        <div class= "col-md-4" style="background-color:#ffffff">
+          <div class="row" style="background-color:rgb(255, 255, 255)">
+            <span style="width: 100%; text-align: center;" >Salario mensual</span>
             <!-- input para ingresar cantidad manual -->
-            <input type="number" placeholder="Salario mensual Q" [(ngModel)]="salarioFullstack.salarioQuetzales" (ngModelChange)="calcularSalario(salarioFullstack)">
+            <input type="number" placeholder="Ingrese salario" [(ngModel)]="salarioFullstack.salarioQuetzales" (ngModelChange)="calcularSalario(salarioFullstack)">
           </div>
-          <div class="row" style="background-color:rgb(255, 163, 255)">Q hora
-              <!-- input de resultado cantidad Quetzales por hora -->
-                <input placeholder="Salario por hora Q" [(ngModel)]="salarioFullstack.salarioHoraQuetzales" disabled>
-            </div>
+        
+          <div class="row" style="background-color:rgb(255, 255, 255)">
+        <!-- input de resultado cantidad Quetzales por hora -->
+            <form class="example-form" >
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Salario por hora Q" [(ngModel)]="salarioFullstack.salarioHoraQuetzales" name="horaQ" disabled >
+                </mat-form-field>
+            </form>
+          </div>
         </div>
+        
+        
         <!-- Dólares -->
-        <div class="col-md-4" style="background-color:rgb(195, 184, 255)">
-            <div class="row" style="background-color:rgb(79, 255, 246)">$ mensual
-                <input placeholder="Salario $" [(ngModel)]="salarioFullstack.salarioDolares" disabled>
+        <div class="col-md-4" style="background-color:rgb(255, 255, 255)">
+            <div class="row" style="background-color:rgb(255, 255, 255)">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Salario $" [(ngModel)]="salarioFullstack.salarioDolares" name="salario$" disabled>
+                    </mat-form-field>
+                </form>
             </div>
-            <div class="row" style="background-color:rgb(255, 163, 255)">$ hora
-                <input placeholder="Salario por hora $" [(ngModel)]="salarioFullstack.salarioHoraDolares" disabled>
+            <div class="row" style="background-color:rgb(255, 255, 255)">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                <input matInput placeholder="Salario por hora $" [(ngModel)]="salarioFullstack.salarioHoraDolares" name="hora$" disabled>
+                    </mat-form-field>
+                </form>
             </div>
         </div>
-        <hr />
       </div>
+      </mat-card>
     </div>
 
     <!-- en blanco -->
     <div class= "col-md-8" style="background-color:rgb(255, 255, 255)"></div>
   </div>
+  <br/>
+
+  <!--Card vertical de pages-->
+
+  <div class="row"> 
+    <div class="col-md-4">
+      <!-- * * * Inicio de card * * * -->
+      <mat-card>
+        <!-- Título -->
+        <div> 
+          <span class="titulo">{{salarioFullstack.nombre}}</span>
+        </div>
+
+        <!-- * Inicio campo Puesto * -->
+        <div>
+          <span class="titulo">Puesto</span>
+          <span class="placeholder">Ejemplo</span>
+        </div>
+        <div>
+          <input type="text" class="inputCajon" [(ngModel)]="salarioFullstack.nombre">
+        </div>
+        <!-- * Final campo Puesto * -->
+        
+        <!-- * Inicio Salario mensual * -->
+        <div>
+          <span class="titulo">Salario mensual (Q)</span>
+          <span class="placeholder">Q1,000</span>
+        </div>
+        <div>
+          <input type="number" class="inputCajon" [(ngModel)]="salarioFullstack.salarioQuetzales" (ngModelChange)="calcularSalario(salarioFullstack)">
+        </div>
+        <!-- * Final Salario mensual * -->
+
+        <!-- * Inicio Salario por hora Q * -->
+        <div>
+          <span class="titulo">Salario por hora (Q)</span>
+        </div>
+        <div>
+          <input type="number" class="inputCajon" [(ngModel)]="salarioFullstack.salarioHoraQuetzales" disabled>
+        </div>
+        <!-- * Final Salario por hora Q * -->
+
+        <!-- * Inicio Salario mensual $ * -->
+        <div>
+          <span class="titulo">Salario mensual ($)</span>
+        </div>
+        <div>
+          <input type="number" class="inputCajon" [(ngModel)]="salarioFullstack.salarioDolares" disabled>
+        </div>
+        <!-- * Final Salario mensual $ * -->
+
+        <!-- * Inicio Salario por hora $ * -->
+        <div>
+          <span class="titulo">Salario por hora ($)</span>
+        </div>
+        <div>
+          <input type="number" class="inputCajon" [(ngModel)]="salarioFullstack.salarioHoraDolares" disabled>
+        </div>
+        <!-- * Final Salario por hora $ * -->
+
+        
+      </mat-card>
+      <!-- * * * Fin de card * * * -->
+    </div>
+  </div>
+
+
+
+
 </div>
