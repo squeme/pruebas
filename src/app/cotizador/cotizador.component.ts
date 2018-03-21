@@ -25,8 +25,13 @@ export class CotizadorComponent implements OnInit {
     this.salarioDisenadorComercial = new Salario();
     this.salarioDisenadorComercial.nombre = 'Diseñador comercial';
     this.salarioDisenadorComercial.salarioQuetzales = 5000;
+
+    this.calcularSalarios();
   }
   
+  calcularSalarios(){
+    this.calcularSalario(this.salarioFullstack);
+  }
  
   calcularSalario (salario: Salario) {    
     salario.salarioDolares = salario.salarioQuetzales / this.tipoDeCambio;

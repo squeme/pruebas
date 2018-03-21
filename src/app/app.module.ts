@@ -9,6 +9,8 @@ import { AngelitoComponent } from './angelito/angelito.component';
 import { CotizadorComponent } from './cotizador/cotizador.component';
 import { MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { TipoDeCambioComponent } from './tipo-de-cambio/tipo-de-cambio.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FlyersComponent,
     TetosComponent,
     AngelitoComponent,
-    CotizadorComponent
+    CotizadorComponent,
+    HeaderComponent,
+    TipoDeCambioComponent
   ],
   imports: [
     BrowserModule,

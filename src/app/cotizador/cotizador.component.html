@@ -1,114 +1,14 @@
-<!-- * * * * * * * * * * * * * * * INSTRUCCIONES * * * * * * * * * * * * * * * -->
-<div style="display:none">
-  <h1>Cotizador Faser</h1>
-  <h2>Instrucciones</h2>
-  <h3>Fase 1:</h3>
-  <ul>
-    <li>
-      Definir los salarios en Quetzales para las siguientes labores:
-      <ul>
-        <li>Programador full stack</li>
-        <li>Diseñador comercial</li>
-        <li>Diseñador Wordpress</li>
-        <li>Diseñador editorial</li>
-        <li>Otro</li>
-      </ul>
-    </li>
-    <li>
-      Ingresar tipo de cambio en otro input
-    </li>
-    <li>
-      Al presionar el botón "Calcular", debe mostrar lo siguiente para cada tipo de salario:
-      <ul>
-        <li>Salario mensual en dólares</li>
-        <li>Salario por hora en quetzales</li>
-        <li>Salario por horaen dólares</li>
-      </ul>
-    </li>
-  </ul>
-  <hr>
-</div>
 <!-- * * * * * * * * * * * * * * * VISTA * * * * * * * * * * * * * * * -->
 <!-- contenedor general -->
 <div class="container-fluid" style="background-color:#f5f6f7">
-  <!-- encabezado -->
-  <div class="row">
-    <div class="col-md-2" style="background-color:rgb(255, 255, 255)">
-        <img src="./assets/logos/FASER2018_cua.png" height="100px"/>
-    </div>
-    <div class="col" style="background-color:rgba(255, 255, 255, 0.867)">
-      <h1>Cotizador 2018</h1>
-    </div>
-    <div class="col-md-3" style="background-color:rgb(223, 223, 223)">
-      <h2 style="text-align:center;">tipo de cambio</h2> 
-      <input type="number" placeholder="Tipo de cambio" [(ngModel)]="tipoDeCambio">
-    </div>
-  </div>
-
-  <hr />
-
-  <!-- módulo de referencias salariales -->
-  <div class="row">
-    <div class="col-md-6" style="background-color:rgb(255, 255, 255">
-      <mat-card style="background-color:rgb(255, 255, 255)">
-      <div class="row">
-
-        <!-- Puesto -->
-        <div class= "col-md-4 d-flex align-items-center" style="background-color:rgb(219, 219, 219)"> 
-          <form class="example-form">
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Puesto" [(ngModel)]="salarioFullstack.nombre" name="nombre" >
-            </mat-form-field>
-          </form>
-        </div>
-        
-        <!-- Quetzales -->
-        <div class= "col-md-4" style="background-color:#ffffff">
-          <div class="row" style="background-color:rgb(255, 255, 255)">
-            <span style="width: 100%; text-align: center;" >Salario mensual</span>
-            <!-- input para ingresar cantidad manual -->
-            <input type="number" placeholder="Ingrese salario" [(ngModel)]="salarioFullstack.salarioQuetzales" (ngModelChange)="calcularSalario(salarioFullstack)">
-          </div>
-        
-          <div class="row" style="background-color:rgb(255, 255, 255)">
-        <!-- input de resultado cantidad Quetzales por hora -->
-            <form class="example-form" >
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Salario por hora Q" [(ngModel)]="salarioFullstack.salarioHoraQuetzales" name="horaQ" disabled >
-                </mat-form-field>
-            </form>
-          </div>
-        </div>
-        
-        
-        <!-- Dólares -->
-        <div class="col-md-4" style="background-color:rgb(255, 255, 255)">
-            <div class="row" style="background-color:rgb(255, 255, 255)">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Salario $" [(ngModel)]="salarioFullstack.salarioDolares" name="salario$" disabled>
-                    </mat-form-field>
-                </form>
-            </div>
-            <div class="row" style="background-color:rgb(255, 255, 255)">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width">
-                <input matInput placeholder="Salario por hora $" [(ngModel)]="salarioFullstack.salarioHoraDolares" name="hora$" disabled>
-                    </mat-form-field>
-                </form>
-            </div>
-        </div>
-      </div>
-      </mat-card>
-    </div>
-
-    <!-- en blanco -->
-    <div class= "col-md-8" style="background-color:rgb(255, 255, 255)"></div>
-  </div>
   <br/>
 
-  <!--Card vertical de pages-->
+  <app-tipo-de-cambio [(tipoDeCambio)]="tipoDeCambio" (tipoDeCambioChange)="calcularSalarios()"></app-tipo-de-cambio>
 
+  <br/>
+
+
+  <!--Card vertical de pages-->
   <div class="row"> 
     <div class="col-md-4">
       <!-- * * * Inicio de card * * * -->
